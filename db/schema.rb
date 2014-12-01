@@ -11,10 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201234153) do
+ActiveRecord::Schema.define(version: 20141201234958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "likes", force: true do |t|
+    t.integer "count"
+    t.integer "post_id"
+  end
+
+  add_index "likes", ["post_id"], name: "index_likes_on_post_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.string  "name",       null: false
+    t.boolean "bookmarked"
+    t.integer "rating",     null: false
+    t.text    "review",     null: false
+    t.string  "image",      null: false
+    t.integer "user_id"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "restaurants", force: true do |t|
+    t.string  "name",    null: false
+    t.string  "city",    null: false
+    t.string  "state",   null: false
+    t.integer "post_id"
+  end
+
+  add_index "restaurants", ["post_id"], name: "index_restaurants_on_post_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "post_id"
+  end
+
+  add_index "tags", ["post_id"], name: "index_tags_on_post_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string "username",        null: false
