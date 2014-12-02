@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20141201234958) do
     t.string "email",           null: false
     t.string "password_digest", null: false
     t.string "token",           null: false
+    t.string "image"
   end
 
 end
