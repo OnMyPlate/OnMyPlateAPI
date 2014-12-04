@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   enum status: [:admin, :guest, :member]
 
+  
+  # Adds methods to set and authenticate against a BCrypt password. This mechanism requires you to have a password_digest attribute.
   has_secure_password
 
   before_create :set_token
@@ -18,6 +20,7 @@ class User < ActiveRecord::Base
     end
 
     def generate_token
+      # generates token for the user to send it to UI in order to complete the login procedures
       SecureRandom.uuid.gsub(/\-/, '')
     end
 

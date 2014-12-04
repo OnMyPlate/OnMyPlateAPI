@@ -8,5 +8,5 @@
 
 User.delete_all
 
-user1 = User.create({username: 'puredoofy', email: 'pfoody@example.com', password_digest: '1', token: 'a'})
-user2 = User.create({username: 'gourme', email: 'gourme@example.com', password_digest: '2', token: 'b'})
+users = User.create([{username: 'puredoofy', email: 'pfoody@example.com', password_digest: '1', token: 'a', status: 2},
+                     {username: 'gourme', email: 'gourme@example.com', password_digest: '2', token: 'b', status: 2}])
