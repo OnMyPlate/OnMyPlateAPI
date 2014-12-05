@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts
 
-  validates :username, presence: :true, on: :create
-  validates :email, presence: :true, on: :create
+  validates :username, presence: :true, uniqueness: true, on: :create
+  validates :email, presence: :true, uniqueness: true, on: :create
 
   enum status: [:admin, :guest, :member]
 
