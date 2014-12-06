@@ -19,6 +19,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    user = User.find_by(email: params[:email])
+
+    if user && user.authenticate(params[:password])
+      render json: {"token" => user.token}
+    else
+      # The head method can be used to send responses with only headers to the browser.
+      head :unauthorized
+    end
+  end
+
   private
 
     def user_params

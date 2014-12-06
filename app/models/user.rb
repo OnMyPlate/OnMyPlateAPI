@@ -14,13 +14,14 @@ class User < ActiveRecord::Base
 
 
   private
+
     def set_token
       return if token.present?
       self.token = generate_token
     end
 
     def generate_token
-      # generates token for the user to send it to UI in order to complete the login procedures
+      # generates token for the user to send it to UI in order to complete the login process
       SecureRandom.uuid.gsub(/\-/, '')
     end
 
