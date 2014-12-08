@@ -39,8 +39,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :token, :status, :image)
     end
-
-    def get_token
-      token = request.headers.env['HTTP_AUTHORIZATION'].gsub(/Token token=/, '')
-    end
 end
