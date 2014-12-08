@@ -41,5 +41,6 @@ class UsersController < ApplicationController
     end
 
     def get_token
+      token = request.headers.env['HTTP_AUTHORIZATION'].gsub(/Token token=/, '')
     end
 end
