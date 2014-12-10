@@ -1,3 +1,3 @@
 class Restaurant < ActiveRecord::Base
-  belongs_to :post
+  has_many :foods
 end
