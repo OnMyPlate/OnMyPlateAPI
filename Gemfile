@@ -5,6 +5,7 @@ gem 'rails', '4.2.0.beta4'
 
 gem 'rails-api'
 gem 'arel', '6.0.0.beta2'
+gem 'aws-sdk-core'
 gem 'rack-cors', :require => 'rack/cors'
 
 
