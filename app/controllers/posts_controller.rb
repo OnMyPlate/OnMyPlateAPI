@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
+    binding.pry
     if @post.save
       render json: @post, status: :created, location: @post
     else
@@ -16,6 +16,6 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:name, :rating, :image, :review, :bookmarked, :user_id)
+      params.require(:post).permit(:name, :rating, :image, :review, :user_id)
     end
 end
