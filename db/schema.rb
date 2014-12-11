@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 20141210191557) do
   create_table "foods", force: true do |t|
     t.string  "name",                          null: false
     t.boolean "bookmarked",    default: false
-    t.float   "avg_rating"
-    t.text    "review",                        null: false
     t.integer "restaurant_id"
   end
 
