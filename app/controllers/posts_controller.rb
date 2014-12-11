@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = get_user(get_token).id
+    @post.food_id = get_food.id
 
     if @post.save
       render json: @post, status: :created
@@ -26,5 +27,9 @@ class PostsController < ApplicationController
 
     def get_user(token)
       User.where(token: token)[0]
+    end
+
+    def get_food
+      Food.all.last
     end
 end

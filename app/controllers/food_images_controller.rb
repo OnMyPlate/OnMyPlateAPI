@@ -16,6 +16,6 @@ class FoodImagesController < ApplicationController
   private
   
     def food_image_params
-      params.require(:food_image).permit(:image_url, :post_id, :food_id)
+      params.require(:food_image).permit(:image_url, :post_id)
     end
 end

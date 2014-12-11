@@ -18,11 +18,9 @@ ActiveRecord::Schema.define(version: 20141210191557) do
 
   create_table "food_images", force: true do |t|
     t.string  "image_url"
-    t.integer "food_id"
     t.integer "post_id"
   end
 
-  add_index "food_images", ["food_id"], name: "index_food_images_on_food_id", using: :btree
   add_index "food_images", ["post_id"], name: "index_food_images_on_post_id", using: :btree
 
   create_table "foods", force: true do |t|

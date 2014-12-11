@@ -5,6 +5,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.create(food_params)
+    @food.restaurant_id = get_restaurant.id
 
     if @food.save
       render json: @food, status: :created
@@ -16,5 +17,10 @@ class FoodsController < ApplicationController
   private
     def food_params
       params.require(:food).permit(:name, :bookmarked, :restaurant_id)
+    end
+
+
+    def get_restaurant
+      Restaurant.all.last
     end
 end
