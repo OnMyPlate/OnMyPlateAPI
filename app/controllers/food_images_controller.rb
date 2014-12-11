@@ -1,0 +1,2 @@
+class FoodImagesController < ApplicationController
+end

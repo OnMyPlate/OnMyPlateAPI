@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   resources :users
-  resources :posts do
-    resources :restaurants
-  end
 
   post '/login', to: 'users#login'
   get '/logout', to: 'users#logout'
