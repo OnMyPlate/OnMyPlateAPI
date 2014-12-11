@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users
-  resources :foods, only: [:index, :create]
-  resources :posts, only: [:index, :create]
+  resources :foods
+  resources :posts
+  resources :restaurants
 
 
   post '/login', to: 'users#login'
