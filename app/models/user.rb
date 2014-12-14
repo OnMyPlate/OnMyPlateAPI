@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :foods
 
   validates :username, presence: :true, uniqueness: true, on: :create
   validates :email, presence: :true, uniqueness: true, on: :create

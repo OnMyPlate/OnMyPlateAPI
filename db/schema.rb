@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(version: 20141210191557) do
   create_table "foods", force: true do |t|
     t.string  "name",                          null: false
     t.boolean "bookmarked",    default: false
+    t.integer "user_id"
     t.integer "restaurant_id"
   end
 
   add_index "foods", ["restaurant_id"], name: "index_foods_on_restaurant_id", using: :btree
+  add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
 
   create_table "likes", force: true do |t|
     t.integer "count"
