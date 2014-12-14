@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :posts
   resources :restaurants
+  resources :food_images
 
 
   post '/login', to: 'users#login'
