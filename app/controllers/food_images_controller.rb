@@ -8,7 +8,7 @@ class FoodImagesController < ApplicationController
     @food_image.post_id = get_post.id
 
     if @food_image.save
-      render json: @food_image, status: :created, location: @food_image
+      render json: @food_image, status: :created
     else
       render json: @food_image.errors, status: :unprocessable_entity
     end

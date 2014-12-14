@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20141210191557) do
   add_index "food_images", ["post_id"], name: "index_food_images_on_post_id", using: :btree
 
   create_table "foods", force: true do |t|
-    t.string  "name",                          null: false
-    t.boolean "bookmarked",    default: false
+    t.string  "name",                                                  null: false
+    t.boolean "bookmarked",                            default: false
+    t.decimal "avg_rating",    precision: 2, scale: 1
     t.integer "user_id"
     t.integer "restaurant_id"
   end
