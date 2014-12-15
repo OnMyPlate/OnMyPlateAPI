@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(version: 20141210191557) do
   add_index "food_images", ["post_id"], name: "index_food_images_on_post_id", using: :btree
 
   create_table "foods", force: true do |t|
-    t.string  "name",                                                  null: false
-    t.boolean "bookmarked",                            default: false
-    t.decimal "avg_rating",    precision: 2, scale: 1
+    t.string  "name",                                                    null: false
+    t.boolean "bookmarked",                              default: false
+    t.string  "restaurant_name",                                         null: false
+    t.string  "city",                                                    null: false
+    t.string  "state",                                                   null: false
+    t.decimal "avg_rating",      precision: 2, scale: 1
     t.integer "user_id"
-    t.integer "restaurant_id"
   end
 
-  add_index "foods", ["restaurant_id"], name: "index_foods_on_restaurant_id", using: :btree
   add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
 
   create_table "likes", force: true do |t|
@@ -50,12 +51,6 @@ ActiveRecord::Schema.define(version: 20141210191557) do
 
   add_index "posts", ["food_id"], name: "index_posts_on_food_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
-
-  create_table "restaurants", force: true do |t|
-    t.string "name",  null: false
-    t.string "city",  null: false
-    t.string "state", null: false
-  end
 
   create_table "tags", force: true do |t|
     t.string  "name"

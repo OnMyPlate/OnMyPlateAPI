@@ -8,7 +8,6 @@ class FoodsController < ApplicationController
     @food = Food.create(food_params)
 
     @food.user_id = get_user(get_token).id
-    @food.restaurant_id = get_restaurant.id
 
     if @food.save
       render json: @food, status: :created
@@ -19,7 +18,7 @@ class FoodsController < ApplicationController
 
   private
     def food_params
-      params.require(:food).permit(:name, :avg_rating, :bookmarked, :user_id, :restaurant_id)
+      params.require(:food).permit(:name, :restaurant_name, :city, :state, :avg_rating, :bookmarked, :user_id)
     end
 
     def get_token
@@ -28,10 +27,5 @@ class FoodsController < ApplicationController
 
     def get_user(token)
       User.where(token: token)[0]
-    end
-
-
-    def get_restaurant
-      Restaurant.all.last
     end
 end

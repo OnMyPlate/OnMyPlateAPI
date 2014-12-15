@@ -1,1 +1,0 @@
-json.(@restaurant, :id, :name, :city, :state)

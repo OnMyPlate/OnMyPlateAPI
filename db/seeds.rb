@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
-Restaurant.delete_all
 Post.delete_all
 Food.delete_all
 FoodImage.delete_all
