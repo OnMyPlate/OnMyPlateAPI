@@ -4,5 +4,6 @@ json.users @users do |user|
   json.email user.email
   json.password_digest user.password_digest
   json.token user.token
+  json.foods user.foods
   json.posts user.posts
 end

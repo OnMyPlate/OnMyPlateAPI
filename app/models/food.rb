@@ -4,7 +4,7 @@ class Food < ActiveRecord::Base
   belongs_to :restaurant
 
 
-  def self.get_avg_rating
+  def get_avg_rating
     posts = Post.all
     avg_rating = posts.each {|post| post.avg_rating}.reduce(:+)
   end

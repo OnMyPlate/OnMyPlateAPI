@@ -6,7 +6,6 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.create(food_params)
-    @food.avg_rating = Food.get_avg_rating
 
     @food.user_id = get_user(get_token).id
     @food.restaurant_id = get_restaurant.id
