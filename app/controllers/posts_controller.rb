@@ -3,6 +3,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @food_image = @post.food_image
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = get_user(get_token).id
