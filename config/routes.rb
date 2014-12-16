@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users
-  resources :foods
-  resources :posts
+  resources :foods do
+    resources :posts
+  end
   resources :food_images
 
 
