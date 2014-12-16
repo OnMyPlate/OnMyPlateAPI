@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
     @food = Food.create(food_params)
 
     @food.user_id = get_user(get_token).id
-
+    
     if @food.save
       render json: @food, status: :created
     else
