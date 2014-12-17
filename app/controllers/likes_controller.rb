@@ -1,5 +1,9 @@
 class LikesController < ApplicationController
 
+  def index
+    @likes = Like.all
+  end
+
   def show
     @like = Like.find(params[:id])
   end
@@ -19,7 +23,7 @@ class LikesController < ApplicationController
   private
 
     def like_params
-      params.require(:like).permit(:user_id, :post_id)
+      params.require(:like).permit(:post_id, :user_id)
     end
 
     def get_token

@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   has_one :food_image
-  has_many :likes
+  has_many :likes, through: :users
   belongs_to :user
   belongs_to :food
 end
