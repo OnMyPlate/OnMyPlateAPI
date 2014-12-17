@@ -6,4 +6,5 @@ json.users @users do |user|
   json.token user.token
   json.foods user.foods
   json.posts user.posts
+  json.likes user.likes
 end
