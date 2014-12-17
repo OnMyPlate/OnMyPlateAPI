@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210191557) do
+ActiveRecord::Schema.define(version: 20141217191614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,10 +35,18 @@ ActiveRecord::Schema.define(version: 20141210191557) do
 
   add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
 
+  create_table "likes", force: true do |t|
+    t.integer "count"
+    t.integer "post_id"
+    t.integer "user_id"
+  end
+
+  add_index "likes", ["post_id"], name: "index_likes_on_post_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
   create_table "posts", force: true do |t|
-    t.integer "rating",              null: false
-    t.text    "review",              null: false
-    t.integer "likes",   default: 0
+    t.integer "rating",  null: false
+    t.text    "review",  null: false
     t.integer "user_id"
     t.integer "food_id"
   end

@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   resources :foods do
     resources :posts
   end
-  resources :food_images
 
+  resources :posts do
+    resources :food_images
+  end
+  resources :food_images
+  resources :likes
 
   post '/login', to: 'users#login'
   get '/logout', to: 'users#logout'
