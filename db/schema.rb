@@ -35,16 +35,10 @@ ActiveRecord::Schema.define(version: 20141210191557) do
 
   add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
 
-  create_table "likes", force: true do |t|
-    t.integer "count"
-    t.integer "post_id"
-  end
-
-  add_index "likes", ["post_id"], name: "index_likes_on_post_id", using: :btree
-
   create_table "posts", force: true do |t|
-    t.integer "rating",  null: false
-    t.text    "review",  null: false
+    t.integer "rating",              null: false
+    t.text    "review",              null: false
+    t.integer "likes",   default: 0
     t.integer "user_id"
     t.integer "food_id"
   end

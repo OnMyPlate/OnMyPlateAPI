@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.integer :rating, null: false
       t.text :review, null: false
+      t.integer :likes, default: 0
       t.belongs_to :user, index: true
       t.belongs_to :food, index: true
     end

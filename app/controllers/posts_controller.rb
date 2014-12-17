@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:rating, :review, :user_id, :food_id)
+      params.require(:post).permit(:rating, :review, :likes, :user_id, :food_id)
     end
 
     def get_token
