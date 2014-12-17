@@ -11,6 +11,7 @@ json.foods @foods do |food|
     json.id post.id
     json.rating post.rating
     json.review post.review
+    json.likes post.likes
     json.user_id post.user_id
     json.food_id post.food_id
     json.food_image post.food_image
