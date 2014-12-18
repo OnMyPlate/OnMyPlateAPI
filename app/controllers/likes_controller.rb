@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
 
   def index
-    @likes = Like.cached_all
+    @likes = Like.all
   end
 
   def show

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.cached_all
+    @posts = Post.all
   end
 
   def show

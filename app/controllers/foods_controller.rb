@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Food.cached_all
+    @foods = Food.all
   end
 
   def show
