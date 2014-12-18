@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
 
   def index
-    @likes = Like.all
+    @likes = Like.cached_all
   end
 
   def show
@@ -18,6 +18,13 @@ class LikesController < ApplicationController
     else
       render json: @like.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+
+    head :no_content
   end
 
   private

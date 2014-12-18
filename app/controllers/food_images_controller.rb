@@ -1,6 +1,6 @@
 class FoodImagesController < ApplicationController
   def index
-    @food_images = FoodImage.all
+    @food_images = FoodImage.cached_all
   end
 
   def create

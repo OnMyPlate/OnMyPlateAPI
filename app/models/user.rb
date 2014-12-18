@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   before_create :set_token
 
+  def self.cached_all
+    @cached_all ||= self.all
+  end
+
 
   private
 
