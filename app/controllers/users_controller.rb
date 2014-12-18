@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.includes([:foods, :posts, :likes])
   end
 
   def show
