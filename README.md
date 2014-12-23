@@ -5,12 +5,12 @@ OnMyPlate is a food review web app that users can post a review of specific plat
 ##Technologies, Frameworks, Libraries
 
 - Gems
-  *bcrypt-ruby
+  *bcrypt
   *jbuilder
-  *rails-api
-  *aws-sdk-core
-  *rack-cors
-  *rspec-rails
+  *rails\-api
+  *aws\-sdk\-core
+  *rack\-cors
+  *rspec\-rails
 
 - Amazon S3 
 
