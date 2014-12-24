@@ -39,7 +39,7 @@ class FoodsController < ApplicationController
 
   private
     def food_params
-      params.require(:food).permit(:name, :restaurant_name, :city, :state, :avg_rating, :bookmarked, :user_id)
+      params.require(:food).permit(:name, :restaurant_name, :city, :state, :avg_rating, :bookmarked, :user_bookmarked, :user_id)
     end
 
     def get_token
