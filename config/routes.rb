@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :food_images
   resources :likes
+  resources :bookmarks
 
 
   post '/login', to: 'users#login'
