@@ -1,4 +1,4 @@
-json.(@food, :id, :name, :restaurant_name, :city, :state, :avg_rating, :bookmarked, :user_id)
+json.(@food, :id, :name, :restaurant_name, :city, :state, :avg_rating, :bookmarked, :user_bookmarked,:user_id)
 
 json.posts @food.posts do |post|
   json.id post.id
