@@ -7,4 +7,5 @@ json.users @users do |user|
   json.foods user.foods
   json.posts user.posts
   json.likes user.likes
+  json.bookmarks user.bookmarks
 end

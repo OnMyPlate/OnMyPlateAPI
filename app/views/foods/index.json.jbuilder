@@ -5,8 +5,6 @@ json.foods @foods do |food|
   json.city food.city
   json.state food.state
   json.avg_rating food.avg_rating
-  json.bookmarked food.bookmarked
-  json.user_bookmarked food.user_bookmarked
   json.user_id food.user_id
   json.posts food.posts do |post|
     json.id post.id
@@ -18,4 +16,5 @@ json.foods @foods do |food|
     json.food_image post.food_image
     json.likes post.likes.count
   end
+  json.bookmarks food.bookmarks
 end

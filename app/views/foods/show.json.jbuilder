@@ -9,3 +9,4 @@ json.posts @food.posts do |post|
   json.food_image post.food_image
   json.likes post.likes.count
 end
+json.bookmarks @food.bookmarks
