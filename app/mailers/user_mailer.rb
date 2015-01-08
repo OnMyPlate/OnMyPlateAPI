@@ -1,10 +1,11 @@
 class UserMailer < ActionMailer::Base
   default from: ENV['GMAIL_USERNAME']
-  attr_accessor :username
+  attr_accessor :username, :url
 
   def user_email(user_params)
     @username = user_params[:username]
     @email = user_params[:email]
+    @url = 'http://localhost:3000/confirm_email'
     mail(to: @email, 
          date: Time.now,
          content_type: 'text/html',

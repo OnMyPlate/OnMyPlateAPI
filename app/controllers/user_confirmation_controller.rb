@@ -2,6 +2,21 @@ class UserConfirmationController < ApplicationController
 
   def email_to_user
     UserMailer.user_email(email_params).deliver_now
+    render json: {sent: true, confirmed: false}, status: 200
+  end
+
+  def confirm_member
+    User.email_confirmed
+    redirect_to 'http://localhost:9000/#/login'
+  end
+
+  def get_confirm
+    binding.pry
+    if User.isConfirmed
+      render json: {sent: true, confirmed: true}, status: 200
+    else
+      render json: {sent: true, confirmed: false}, status: 200
+    end
   end
 
   private
