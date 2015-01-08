@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'users#logout'
 
   get 'amazon/sign_key'
+
+  post 'email/confirm', to: 'user_confirmation#email_to_user'
 end
