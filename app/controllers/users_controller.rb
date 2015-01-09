@@ -45,4 +45,13 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :token, :status, :image)
     end
+
+    def is_admin?
+      @user = User.find_by(params[:email])
+      @user.status == "admin" ? 
+        render json: {admin: true}, status: 200
+      else
+        render json: {admin: false}, status: 200
+      end
+    end
 end
