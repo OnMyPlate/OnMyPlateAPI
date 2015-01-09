@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   def user_email(user_params)
     @username = user_params[:username]
     @email = user_params[:email]
-    @url = "http://localhost:3000/confirm_email/#{@username}"
+    @url = "https://onmyplate.herokuapp.com/confirm_email/#{@username}"
     mail(to: @email, 
          date: Time.now,
          content_type: 'text/html',
