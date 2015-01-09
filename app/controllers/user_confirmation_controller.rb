@@ -6,12 +6,14 @@ class UserConfirmationController < ApplicationController
   end
 
   def confirm_member
-    User.email_confirmed(true)
+    @user = User.find_by(username: params[:username])
+    @user.update({status: "member"})
     redirect_to 'http://localhost:9000/#/login'
   end
 
   def get_confirm
-    if User.isConfirmed
+    @user = User.find_by(email: params[:email])
+    if @user.status == "member"
       render json: {sent: true, confirmed: true}, status: 200
     else
       render json: {sent: true, confirmed: false}, status: 200

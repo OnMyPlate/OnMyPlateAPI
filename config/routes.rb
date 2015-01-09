@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   get 'amazon/sign_key'
 
   post 'email/confirm', to: 'user_confirmation#email_to_user'
-  get 'confirm_email', to: 'user_confirmation#confirm_member'
-  get 'get_confirm', to: 'user_confirmation#get_confirm'
+  get 'confirm_email/:username', to: 'user_confirmation#confirm_member'
+  post 'get_confirm', to: 'user_confirmation#get_confirm'
 end
