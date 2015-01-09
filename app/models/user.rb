@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   before_create :set_token
 
 
-  def self.email_confirmed
-    @confirmed = true
+  def self.email_confirmed(value)
+    @confirmed = value
   end
 
   def self.isConfirmed

@@ -6,7 +6,7 @@ class UserConfirmationController < ApplicationController
   end
 
   def confirm_member
-    User.email_confirmed
+    User.email_confirmed(true)
     redirect_to 'http://localhost:9000/#/login'
   end
 

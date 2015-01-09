@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    User.email_confirmed(false)
     @user.destroy
 
     head :no_content
