@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :bookmarks
 
-  validates :username, presence: :true, uniqueness: true, on: :create
+  validates :username, presence: :true, on: :create
   validates :email, presence: :true, uniqueness: true, on: :create
 
-  enum status: [:admin, :guest, :member]
+  enum status: [:admin, :member]
 
   
   # Adds methods to set and authenticate against a BCrypt password. This mechanism requires you to have a password_digest attribute.

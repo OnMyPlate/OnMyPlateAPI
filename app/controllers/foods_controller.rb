@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Food.all.includes(:posts)
+    @foods = Food.all.includes([:posts, :bookmarks])
   end
 
   def show

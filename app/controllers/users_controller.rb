@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.includes([:foods, :posts, :likes])
+    @users = User.all.includes([:foods, :posts, :likes, :bookmarks])
   end
 
   def show
@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    head :no_content
   end
 
   def login

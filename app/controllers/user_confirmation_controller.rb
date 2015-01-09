@@ -11,7 +11,6 @@ class UserConfirmationController < ApplicationController
   end
 
   def get_confirm
-    binding.pry
     if User.isConfirmed
       render json: {sent: true, confirmed: true}, status: 200
     else
