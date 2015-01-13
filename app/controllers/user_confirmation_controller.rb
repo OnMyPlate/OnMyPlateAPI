@@ -8,7 +8,7 @@ class UserConfirmationController < ApplicationController
   def confirm_member
     @user = User.find_by(username: params[:username])
     @user.update({status: "member"})
-    redirect_to 'http://cyurtbil.github.io/OnMyPlateClient/#/login'
+    redirect_to 'http://onmyplatecy.com/#/login'
   end
 
   def get_confirm
