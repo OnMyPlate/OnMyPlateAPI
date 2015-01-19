@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  has_many :posts
-  has_many :foods
-  has_many :likes
-  has_many :bookmarks
+  has_many :posts, dependent: :destroy    
+  has_many :foods, dependent: :destroy     
+  has_many :likes, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :username, presence: :true, on: :create
   validates :email, presence: :true, uniqueness: true, on: :create
