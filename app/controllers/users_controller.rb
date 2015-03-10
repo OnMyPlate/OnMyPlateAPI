@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :authenticate
+
   def index
     @users = User.all.includes([:foods, :posts, :likes, :bookmarks])
   end
