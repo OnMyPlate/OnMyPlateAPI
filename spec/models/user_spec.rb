@@ -1,10 +1,15 @@
 require 'rails_helper'
+require_relative '../../app/models/user'
 
-RSpec.describe User, type: :model do
+RSpec.describe User, :type => :model do
 
-  it 'has a valid email' do
-    user = Factorygirl.build(:user, email: nil)
-    expect(user.errors[:email]).to include("can't be blank")
+  it 'creates an instance' do
+    user = User.create({
+      username: 'test',
+      email: 'test@test.com',
+      password_digest: '$2a$10$Sf/QzXOZZo1KNR9ghQEFc.DKEmrjX.a3KN..Vk0JN3ZEnVrXvQKqy'
+    })
+
+    expect(user.username).to eq 'test'
   end
-
 end
