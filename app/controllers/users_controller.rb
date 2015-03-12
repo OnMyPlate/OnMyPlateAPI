@@ -52,6 +52,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def does_exist?
+    @user = User.find_by(email: params[:email])
+    if @user.nil?
+      render json: {exist: true}, status: 200
+    else
+      render json: {exist: false}, status: 200
+    end
+  end
+
   private
 
     def user_params

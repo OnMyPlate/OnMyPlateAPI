@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   post 'get_confirm', to: 'user_confirmation#get_confirm'
 
   post '/admin', to: 'users#is_admin?'
+
+  post '/does_exist', to: 'users#does_exist?'
 end
