@@ -43,15 +43,6 @@ class UsersController < ApplicationController
     head :ok
   end
 
-  # def is_admin?
-  #   @user = User.find_by(email: params[:email])
-  #   if @user.status == "admin" 
-  #     render json: {admin: true}, status: 200
-  #   else
-  #     render json: {admin: false}, status: 200
-  #   end
-  # end
-
   def does_exist?
     @user = User.find_by(email: params[:email])
     if @user.nil?

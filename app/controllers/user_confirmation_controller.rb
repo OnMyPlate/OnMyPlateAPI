@@ -16,8 +16,6 @@ class UserConfirmationController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user.status == "member"
       render json: {sent: true, confirmed: true}, status: 200
-    # elsif @user.status == "admin"
-    #   render json: {admin: true}, status: 200
     else
       render json: {sent: true, confirmed: false}, status: 200
     end
