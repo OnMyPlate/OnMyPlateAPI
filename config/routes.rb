@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'confirm_email/:username', to: 'user_confirmation#confirm_member'
   post 'get_confirm', to: 'user_confirmation#get_confirm'
 
-  post '/admin', to: 'users#is_admin?'
+  # post '/admin', to: 'users#is_admin?'
 
   post '/does_exist', to: 'users#does_exist?'
 end

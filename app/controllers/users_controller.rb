@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, except: [:does_exist?, :login, :logout]
+  before_filter :authenticate, except: [:does_exist?, :login, :logout, :create]
 
   def index
     @users = User.all.includes([:foods, :posts, :likes, :bookmarks])
@@ -43,14 +43,14 @@ class UsersController < ApplicationController
     head :ok
   end
 
-  def is_admin?
-    @user = User.find_by(email: params[:email])
-    if @user.status == "admin" 
-      render json: {admin: true}, status: 200
-    else
-      render json: {admin: false}, status: 200
-    end
-  end
+  # def is_admin?
+  #   @user = User.find_by(email: params[:email])
+  #   if @user.status == "admin" 
+  #     render json: {admin: true}, status: 200
+  #   else
+  #     render json: {admin: false}, status: 200
+  #   end
+  # end
 
   def does_exist?
     @user = User.find_by(email: params[:email])
