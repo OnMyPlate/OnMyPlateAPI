@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, except: [:does_exist?, :login, :logout, :create]
+  before_filter :authenticate, except: [:does_exist?, :login, :logout, :create, :index]
 
   def index
     @users = User.all.includes([:foods, :posts, :likes, :bookmarks])
