@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
 
   resources :users, except: [:new, :edit, :update]
-
   resources :foods, except: [:new, :edit]
-    # resources :posts, except: [:new, :edit]
-
-  resources :posts, except: [:new, :edit] do
-    resources :food_images, only: [:index, :create, :update]
-    resources :likes, except: [:new, :edit, :update]
-  end
+  resources :posts, except: [:new, :edit]
   resources :food_images, only: [:index, :create, :update]
   resources :likes, except: [:new, :edit, :update]
-  resources :bookmarks, except: [:index, :create, :destroy]
+  resources :bookmarks, only: [:index, :create, :destroy]
 
 
   post '/login', to: 'users#login'
