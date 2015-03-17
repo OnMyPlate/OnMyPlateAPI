@@ -62,13 +62,6 @@ ActiveRecord::Schema.define(version: 20141224144528) do
   add_index "posts", ["food_id"], name: "index_posts_on_food_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "restaurant_id"
-  end
-
-  add_index "tags", ["restaurant_id"], name: "index_tags_on_restaurant_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string  "username",        null: false
     t.string  "email",           null: false

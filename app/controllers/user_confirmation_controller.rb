@@ -7,6 +7,7 @@ class UserConfirmationController < ApplicationController
 
   def confirm_member
     @user = User.find_by(username: params[:username])
+    binding.pry
     @user.update({status: "member"})
     # redirect_to 'http://onmyplatecy.com/#/login'
     redirect_to 'http://localhost:9000/#/login'

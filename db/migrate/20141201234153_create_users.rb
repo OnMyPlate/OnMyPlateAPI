@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :token, null: false
       t.string :image_url
+      t.integer :status
     end
   end
 end
