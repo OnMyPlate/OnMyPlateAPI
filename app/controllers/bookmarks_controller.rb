@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
 
     if @bookmark.save
-        render json: @bookmark, status: :created
+      render json: @bookmark, status: :created
     else
       render json: @bookmark.errors, status: :unprocessable_entity
     end
@@ -16,9 +16,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
-
     @bookmark.destroy
-
     head :no_content
   end
 
