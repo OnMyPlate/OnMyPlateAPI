@@ -18,7 +18,7 @@ class FoodImagesController < ApplicationController
     @food_image = FoodImage.find(params[:id])
 
     if @food_image.update(food_image_params)
-      head :no_content
+      render json: @food_image, status: :ok
     else
       render json: @food_image.errors, status: :unprocessable_entity
     end

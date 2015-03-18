@@ -24,7 +24,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
 
     if @food.update(food_params)
-      head :no_content
+      render json: @food, status: :ok
     else
       render json: @food.errors, status: :unprocessable_entity
     end

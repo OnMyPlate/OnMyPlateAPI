@@ -22,9 +22,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
+    
     if @post.update(post_params)
-      head :no_content
+      render json: @post, status: :ok
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:rating, :review, :likes, :user_id, :food_id)
+      params.require(:post).permit(:rating, :review, :user_id, :food_id)
     end
 
     def get_token
