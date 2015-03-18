@@ -53,6 +53,8 @@ class UsersController < ApplicationController
   end
 
   def current_user
+    current_user = User.find_by({token: params["token"]})
+    render json: current_user, status: :ok
   end
 
   private
