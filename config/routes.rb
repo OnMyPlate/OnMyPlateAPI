@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   get '/logout', to: 'users#logout'
   post '/does_exist', to: 'users#does_exist?'
+  post '/current_user', to: 'users#current_user'
 
   get 'amazon/sign_key'
 
